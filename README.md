@@ -6,22 +6,5 @@ This is a small library for including dependency injected time and id providers
 
 ```
 resolvers += "Eigenroute maven repo" at "http://mavenrepo.eigenroute.com/"
-libraryDependencies += "com.eigenroute" %% "eigenroute-util" % "0.0.1"
+libraryDependencies += "com.eigenroute" %% "eigenroute-util-test" % "0.0.1" % Test
 ```
-
-## Use
-
-```
-class SomeController @Inject() (
-    api: API,
-    override val timeProvider: TimeProvider,
-    override val jWTAlgorithmProvider: JWTAlgorithmProvider,
-    override val jWTPublicKeyProvider: JWTPublicKeyProvider
-  ) extends Controller with AuthenticatedActionCreator {
-
-  def post = ???
-
-}
-```
-
-Don't forget to bind the dependencies.
