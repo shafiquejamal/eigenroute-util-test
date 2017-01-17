@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eigenroute-util.iml" filepath="$PROJECT_DIR$/.idea/modules/eigenroute-util.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eigenroute-util-build.iml" filepath="$PROJECT_DIR$/.idea/modules/eigenroute-util-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eigenroute-util-test.iml" filepath="$PROJECT_DIR$/.idea/modules/eigenroute-util-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eigenroute-util-test-build.iml" filepath="$PROJECT_DIR$/.idea/modules/eigenroute-util-test-build.iml" />
     </modules>
   </component>
 </project>

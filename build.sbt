@@ -1,13 +1,13 @@
-name := """eigenroute-util"""
+name := """eigenroute-util-test"""
 
 version := "0.0.2"
 organization := "com.eigenroute"
 
 scalaVersion := "2.11.7"
+resolvers += "Eigenroute maven repo" at "http://mavenrepo.eigenroute.com/"
 
 libraryDependencies ++= Seq(
-  "joda-time" % "joda-time" % "2.9.7",
-  "com.google.inject" % "guice" % "4.1.0"
+  "com.eigenroute" %% "eigenroute-util" % "0.0.2"
 )
 
 publishMavenStyle := true
