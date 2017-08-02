@@ -1,13 +1,13 @@
 name := """eigenroute-util-test"""
 
-version := "0.0.2"
+version := "0.0.3"
 organization := "com.eigenroute"
 
 scalaVersion := "2.11.7"
-resolvers += "Eigenroute maven repo" at "http://mavenrepo.eigenroute.com/"
+// resolvers += "Eigenroute maven repo" at "http://mavenrepo.eigenroute.com/"
 
 libraryDependencies ++= Seq(
-  "com.eigenroute" %% "eigenroute-util" % "0.0.2"
+  "com.eigenroute" %% "eigenroute-util" % "0.0.3"
 )
 
 publishMavenStyle := true
