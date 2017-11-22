@@ -1,10 +1,9 @@
-# Eigenroute Utils
+# Eigenroute Utils-Test
 
-This is a small library for including dependency injected time and id providers
+This is a small library for including dependency injected time and id providers. For use in test, where you need to control the clock.
 
 ## Installation
 
 ```
-resolvers += "Eigenroute maven repo" at "http://mavenrepo.eigenroute.com/"
-libraryDependencies += "com.eigenroute" %% "eigenroute-util-test" % "0.0.1" % Test
+libraryDependencies += "com.github.shafiquejamal" %% "utils-test" % "0.0.4" % Test
 ```

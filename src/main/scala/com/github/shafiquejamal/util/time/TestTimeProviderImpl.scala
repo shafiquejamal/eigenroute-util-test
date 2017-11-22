@@ -1,4 +1,4 @@
-package com.eigenroute.util.time
+package com.github.shafiquejamal.util.time
 
 import com.google.inject.Singleton
 import org.joda.time.DateTime

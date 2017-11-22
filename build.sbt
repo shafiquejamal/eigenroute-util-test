@@ -1,19 +1,73 @@
-name := """eigenroute-util-test"""
+import sbt.IvyConsole.Dependencies._
+import ReleaseTransformations._
+import sbt.StdoutOutput
 
-version := "0.0.3"
-organization := "com.eigenroute"
+releaseCrossBuild := false
+releaseProcess := Seq[ReleaseStep](
+  checkSnapshotDependencies,
+  inquireVersions,
+  runClean,
+  runTest,
+  setReleaseVersion,
+  commitReleaseVersion,
+  tagRelease,
+  releaseStepCommand("publishSigned"),
+  setNextVersion,
+  commitNextVersion,
+  releaseStepCommand("sonatypeReleaseAll"),
+  pushChanges
+)
 
-scalaVersion := "2.11.7"
-// resolvers += "Eigenroute maven repo" at "http://mavenrepo.eigenroute.com/"
+lazy val root = (project in file(".")).
+  settings(
+    inThisBuild(List(
+      organization := "com.github.shafiquejamal",
+      scalaVersion := "2.11.11",
+      version      := "0.0.4"
+    )),
+    name := "utils-test",
+    libraryDependencies ++= Seq(
+      "com.github.shafiquejamal" %% "utils" % "0.0.4"
+    )
+  )
 
-libraryDependencies ++= Seq(
-  "com.eigenroute" %% "eigenroute-util" % "0.0.3"
+javaOptions in run ++= Seq(
+  "-Dlog4j.debug=true",
+  "-Dlog4j.configuration=log4j.properties")
+outputStrategy := Some(StdoutOutput)
+
+
+useGpg := true
+pomIncludeRepository := { _ => false }
+
+licenses := Seq("BSD-style" -> url("http://www.opensource.org/licenses/bsd-license.php"))
+
+homepage := Some(url("https://github.com/shafiquejamal/eigenroute-utils"))
+
+scmInfo := Some(
+  ScmInfo(
+    url("https://github.com/shafiquejamal/eigenroute-util-test"),
+    "scm:git@github.com:shafiquejamal/eigenroute-util-test.git"
+  )
+)
+
+developers := List(
+  Developer(
+    id    = "shafiquejamal",
+    name  = "Shafique Jamal",
+    email = "admin@eigenroute.com",
+    url   = url("http://eigenroute.com")
+  )
 )
 
 publishMavenStyle := true
-val resolver = Resolver.ssh("Eigenroute maven repo", "mavenrepo.eigenroute.com", 7835, "/home/mavenrepo/repo") withPermissions "0644"
-publishTo := Some(resolver as ("mavenrepo", Path.userHome / ".ssh" / "id_rsa"))
 
-publishArtifact in packageSrc := false
+publishTo := {
+  val nexus = "https://oss.sonatype.org/"
+  if (isSnapshot.value)
+    Some("snapshots" at nexus + "content/repositories/snapshots")
+  else
+    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+}
 
-publishArtifact in packageDoc := false
+publishArtifact in Test := false

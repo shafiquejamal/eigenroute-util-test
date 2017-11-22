@@ -1,4 +1,4 @@
-package com.eigenroute.util.id
+package com.github.shafiquejamal.util.id
 
 import com.google.inject.Singleton
 import java.util.UUID
