@@ -24,11 +24,11 @@ lazy val root = (project in file(".")).
       organization := "com.github.shafiquejamal",
       scalaVersion := "2.11.11",
 			crossScalaVersions := Seq("2.11.11", "2.12.6"),
-      version      := "0.0.5"
+      version      := "0.0.6"
     )),
     name := "utils-test",
     libraryDependencies ++= Seq(
-      "com.github.shafiquejamal" %% "utils" % "0.0.4"
+      "com.github.shafiquejamal" %% "utils" % "0.0.6"
     )
   )
 
